@@ -1,0 +1,79 @@
+<html>
+<body>
+
+
+
+<title>RGB  Mixer</title>
+  <h1>RGB COLOR MIXER</h1>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    .color-box {
+      width: 80%;
+      height: 100px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+     
+    }
+    .slider-container {
+      display: flex;
+     
+      width: 80%;
+    }
+    .slider-wrapper {
+      text-align: center;
+    }
+    .slider {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="colorBox" class="color-box">rgb(255, 0, 0)</div>
+  
+  <div class="slider-container">
+    <div class="slider-wrapper">
+      <label for="red">RED</label><br>
+      <input type="range" id="red" class="slider" min="0" max="255" value="255" oninput="updateColor()">
+      
+    </div>
+    <div class="slider-wrapper">
+      <label for="green">GREEN</label><br>
+      <input type="range" id="green" class="slider" min="0" max="255" value="0" oninput="updateColor()">
+    
+    </div>
+    <div class="slider-wrapper">
+      <label for="blue">BLUE</label><br>
+      <input type="range" id="blue" class="slider" min="0" max="255" value="0" oninput="updateColor()">
+     
+    </div>
+  </div>
+  <script>
+    function updateColor() {
+      
+       red = document.getElementById("red").value;
+       green = document.getElementById("green").value;
+       blue = document.getElementById("blue").value;
+      
+       rgbColor = RGB(${red}, ${green}, ${blue});
+      document.getElementById("colorBox").style.backgroundColor = rgbColor;
+      document.getElementById("colorBox").textContent = rgbColor;
+      
+      document.getElementById("redValue").textContent = red;
+      document.getElementById("greenValue").textContent = green;
+      document.getElementById("blueValue").textContent = blue;
+    }
+  </script>
+</body>
+</html>
